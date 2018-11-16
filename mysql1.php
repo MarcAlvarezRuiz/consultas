@@ -12,15 +12,17 @@
 
 		$CC = $_GET["pais"];
 		
-		$consulta = "select name from city where CountryCode='".$CC."';";
+		$consulta = "SELECT city.name Ciutat,country.name Pais FROM city, country where city.CountryCode=country.Code AND 
+             city.CountryCode='".$CC."';";
 	
 
 		$resultado = mysqli_query($conexion, $consulta);
 
 		while ($registre = mysqli_fetch_assoc($resultado)) {
-			echo $registre["name"];
-			echo "<br>";
-
+			echo $registre["Ciutat"]."---------------";
+            echo $registre["Pais"];
+            echo "<br>";
+            
 		}
 
 
